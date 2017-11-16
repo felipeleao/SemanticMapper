@@ -178,8 +178,9 @@ public class MITWordnetUtils {
 
 			// Verify if the WNHOME environment variable is set and print warn
 			// if not
-			if (wnhome.trim().equals("")) {
-				logger.error("The WNHOME variable is not set. Set it to indicate your Wordnet home directory.");
+			if (wnhome == null || wnhome.trim().equals("")) {
+				logger.error("The WNHOME environment variable is not set. Set it to indicate your WordNet home directory.");
+				throw new RuntimeException("WNHOME environment variable not set.");
 			}
 
 			String path = wnhome + File.separator + "dict";
